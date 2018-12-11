@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://hospitalresource.ws.nmmps.dhcc.com/" name="HospitalResourceWServiceInterface" targetNamespace="http://hospitalresource.ws.nmmps.dhcc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="receiveResourceDataResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="receiveResourceData">
+    <wsdl:part name="requestData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="HospitalResourceWServiceInterface">
+    <wsdl:operation name="receiveResourceData">
+      <wsdl:input name="receiveResourceData" message="ns1:receiveResourceData" />
+      <wsdl:output name="receiveResourceDataResponse" message="ns1:receiveResourceDataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

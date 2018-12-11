@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://drugpricetrace.ws.nmmps.dhcc.com/" name="DrugPriceTraceWServiceInterface" targetNamespace="http://drugpricetrace.ws.nmmps.dhcc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="receiveDrugDataResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="receiveDrugData">
+    <wsdl:part name="requestData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="DrugPriceTraceWServiceInterface">
+    <wsdl:operation name="receiveDrugData">
+      <wsdl:input name="receiveDrugData" message="ns1:receiveDrugData" />
+      <wsdl:output name="receiveDrugDataResponse" message="ns1:receiveDrugDataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

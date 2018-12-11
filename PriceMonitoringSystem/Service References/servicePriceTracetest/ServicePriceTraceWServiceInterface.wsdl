@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://servicepricetrace.ws.nmmps.dhcc.com/" name="ServicePriceTraceWServiceInterface" targetNamespace="http://servicepricetrace.ws.nmmps.dhcc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="receiveServiceData">
+    <wsdl:part name="requestData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="receiveServiceDataResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="ServicePriceTraceWServiceInterface">
+    <wsdl:operation name="receiveServiceData">
+      <wsdl:input name="receiveServiceData" message="ns1:receiveServiceData" />
+      <wsdl:output name="receiveServiceDataResponse" message="ns1:receiveServiceDataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

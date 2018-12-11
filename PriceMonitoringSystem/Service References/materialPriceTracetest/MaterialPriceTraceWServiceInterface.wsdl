@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://materialpricetrace.ws.nmmps.dhcc.com/" name="MaterialPriceTraceWServiceInterface" targetNamespace="http://materialpricetrace.ws.nmmps.dhcc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="receiveMaterialPriceDataResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="receiveMaterialPriceData">
+    <wsdl:part name="requestData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="MaterialPriceTraceWServiceInterface">
+    <wsdl:operation name="receiveMaterialPriceData">
+      <wsdl:input name="receiveMaterialPriceData" message="ns1:receiveMaterialPriceData" />
+      <wsdl:output name="receiveMaterialPriceDataResponse" message="ns1:receiveMaterialPriceDataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

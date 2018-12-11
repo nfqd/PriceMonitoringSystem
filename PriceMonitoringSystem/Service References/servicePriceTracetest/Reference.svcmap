@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="39ce45a4-f8ad-4b96-b406-bd43c3e14822" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://113.140.81.69:18094/nmmps/ws/servicePriceTraceWService?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicePriceTraceWServiceService.wsdl" MetadataType="Wsdl" ID="d03c74bb-1b74-4951-92a9-cd71fa4e6937" SourceId="1" SourceUrl="http://113.140.81.69:18094/nmmps/ws/servicePriceTraceWService?wsdl" />
+    <MetadataFile FileName="ServicePriceTraceWServiceInterface.wsdl" MetadataType="Wsdl" ID="241e1195-5e7c-4d41-a42f-8cfe85c082dc" SourceId="1" SourceUrl="http://113.140.81.69:18094/nmmps/ws/servicePriceTraceWService?wsdl=ServicePriceTraceWServiceInterface.wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

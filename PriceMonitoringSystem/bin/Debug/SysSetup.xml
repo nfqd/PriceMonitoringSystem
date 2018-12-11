@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<System>
+  <Connection>
+       <SqlConnection>Data Source=172.16.80.92\HIS6;Initial Catalog=NSHIS_WLPT;Enlist=false;Persist Security Info=True;User ID=sa;Password=</SqlConnection>
+    <SqlPassword></SqlPassword>
+	<OracleConnection>Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.169.8.16)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xhis)));User Id=CEHR;Password=</OracleConnection>
+	<OraclePassword>1E8c29bAg2g1</OraclePassword>
+    <Sccs_cs>1</Sccs_cs>
+    <Sccount_cs>100</Sccount_cs>
+    <Sccs_sd>20</Sccs_sd>
+    <Sccount_sd>10000</Sccount_sd>
+    <Sccs_zd>3</Sccs_zd>
+    <Sccount_zd>10000</Sccount_zd>
+    <secretKey>12345678910abcDE</secretKey>
+  </Connection>
+</System>

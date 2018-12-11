@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://medicaltemp.ws.drgs.dhcc.com/" name="MedicalTempWServiceInterface" targetNamespace="http://medicaltemp.ws.drgs.dhcc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="NewOperationRequest">
+    <wsdl:part name="NewOperationRequest" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part name="NewOperationResponse" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="collection">
+    <wsdl:part name="specType" type="xsd:string" />
+    <wsdl:part name="orgCode" type="xsd:string" />
+    <wsdl:part name="fileName" type="xsd:string" />
+    <wsdl:part name="fileIoByte" type="xsd:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="xmlcolletion">
+    <wsdl:part name="specType" type="xsd:string" />
+    <wsdl:part name="orgCode" type="xsd:string" />
+    <wsdl:part name="xmlStr" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="xmlcolletionResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="collectionResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="MedicalTempWServiceInterface">
+    <wsdl:operation name="collection">
+      <wsdl:input name="collection" message="ns1:collection" />
+      <wsdl:output name="collectionResponse" message="ns1:collectionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="xmlcolletion">
+      <wsdl:input name="xmlcolletion" message="ns1:xmlcolletion" />
+      <wsdl:output name="xmlcolletionResponse" message="ns1:xmlcolletionResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
