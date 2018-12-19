@@ -97,12 +97,13 @@ namespace PriceMonitoringSystem
         /// <returns></returns>
         public static string DataToExcel(System.Data.DataTable m_DataTable, string s_FileName)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "41_db_BASY\\";
-            string FileName = path + s_FileName + ".xls";  //文件存放路径
+            string path = AppDomain.CurrentDomain.BaseDirectory + "41_db_BASY";
+            string FileName = path + "\\" + s_FileName + ".xls";  //文件存放路径
             if (Directory.Exists(path) == false)//如果不存在就创建 文件夹
             {
                 Directory.CreateDirectory(path);
-            } if (System.IO.File.Exists(FileName))                                //存在则删除
+            } 
+            if (System.IO.File.Exists(FileName))                                //存在则删除
             {
                 System.IO.File.Delete(FileName);
             }
