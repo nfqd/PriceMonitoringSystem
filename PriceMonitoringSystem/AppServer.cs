@@ -246,7 +246,7 @@ namespace PriceMonitoringSystem
             //DbCommand cmd = db.GetStoredProcCommand("proc_sys_cxgl");
             //db.AddInParameter(cmd, "@cs", SqlDbType.VarChar, cs);
             //db.AddInParameter(cmd, "@options", SqlDbType.VarChar, options);
-            string sql = "select code as  bm ,value as mc from interface_rc where type='" + type + "'";
+            string sql = "select code as  bm ,value as mc from interface_rc where type='" + type + "' order by code asc";
             DataTable dt1 = null;
             try
             {
@@ -336,6 +336,7 @@ namespace PriceMonitoringSystem
         {
             SqlDatabase db = new SqlDatabase(GetConn("sql") + GetConn("sqlpwd"));
             DbCommand cmd = db.GetStoredProcCommand(proname);
+            cmd.CommandTimeout = 6000;//一个小时
             db.AddInParameter(cmd, "@date", SqlDbType.VarChar, date);
             db.AddOutParameter(cmd, "@ErrMsg", SqlDbType.VarChar, 500);
             int a = db.ExecuteNonQuery(cmd);
@@ -347,6 +348,7 @@ namespace PriceMonitoringSystem
         {
             SqlDatabase db = new SqlDatabase(GetConn("sql") + GetConn("sqlpwd"));
             DbCommand cmd = db.GetStoredProcCommand(proname);
+            cmd.CommandTimeout = 6000;//一个小时
             db.AddInParameter(cmd, "@year", SqlDbType.VarChar, year);
             db.AddInParameter(cmd, "@quarter", SqlDbType.VarChar, quarter);
             db.AddOutParameter(cmd, "@ErrMsg", SqlDbType.VarChar, 500);
