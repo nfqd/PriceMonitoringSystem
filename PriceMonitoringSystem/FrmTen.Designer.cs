@@ -37,11 +37,10 @@
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtText = new System.Windows.Forms.TextBox();
+            this.ttcode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtmc = new System.Windows.Forms.TextBox();
@@ -104,7 +103,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.txtText);
+            this.panel3.Controls.Add(this.ttcode);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 25);
@@ -112,13 +111,13 @@
             this.panel3.Size = new System.Drawing.Size(1000, 42);
             this.panel3.TabIndex = 34;
             // 
-            // txtText
+            // ttcode
             // 
-            this.txtText.Location = new System.Drawing.Point(77, 12);
-            this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(363, 21);
-            this.txtText.TabIndex = 0;
-            this.txtText.TextChanged += new System.EventHandler(this.txtText_TextChanged);
+            this.ttcode.Location = new System.Drawing.Point(86, 13);
+            this.ttcode.Name = "ttcode";
+            this.ttcode.Size = new System.Drawing.Size(258, 21);
+            this.ttcode.TabIndex = 26;
+            this.ttcode.TextChanged += new System.EventHandler(this.txtText_TextChanged);
             // 
             // label3
             // 
@@ -132,7 +131,6 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtmc);
@@ -159,13 +157,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(154, 20);
             this.comboBox1.TabIndex = 58;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(72, 153);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 21);
-            this.textBox1.TabIndex = 56;
             // 
             // label1
             // 
@@ -326,5 +317,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnout;
         private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.TextBox ttcode;
     }
 }
