@@ -37,15 +37,19 @@
             this.gropUp = new System.Windows.Forms.GroupBox();
             this.dgrdUp = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnUP_cs = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.UpTime = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
+            this.cbbtablename = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.dtpend = new System.Windows.Forms.DateTimePicker();
             this.dtpstart = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbbtablename = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnUP_sd = new System.Windows.Forms.Button();
             this.btnSTOP = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -67,13 +71,10 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.耗材价格编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机构信息编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnUP_cs = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.UpTime = new System.Windows.Forms.DateTimePicker();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.国家科室编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gropUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrdUp)).BeginInit();
             this.panel1.SuspendLayout();
@@ -153,15 +154,44 @@
             this.panel1.Size = new System.Drawing.Size(1112, 31);
             this.panel1.TabIndex = 5;
             // 
-            // button3
+            // btnUP_cs
             // 
-            this.button3.Location = new System.Drawing.Point(542, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "手动生成";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnUP_cs.Location = new System.Drawing.Point(1008, 4);
+            this.btnUP_cs.Name = "btnUP_cs";
+            this.btnUP_cs.Size = new System.Drawing.Size(74, 23);
+            this.btnUP_cs.TabIndex = 10;
+            this.btnUP_cs.Text = "定时上传";
+            this.btnUP_cs.UseVisualStyleBackColor = true;
+            this.btnUP_cs.Click += new System.EventHandler(this.btnUP_cs_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(538, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(118, 23);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "上月数据重新导入";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(796, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 12);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "每天上传时间：";
+            // 
+            // UpTime
+            // 
+            this.UpTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.UpTime.Location = new System.Drawing.Point(892, 5);
+            this.UpTime.Name = "UpTime";
+            this.UpTime.ShowUpDown = true;
+            this.UpTime.Size = new System.Drawing.Size(102, 21);
+            this.UpTime.TabIndex = 8;
+            this.UpTime.Value = new System.DateTime(2011, 6, 28, 0, 0, 0, 0);
             // 
             // button2
             // 
@@ -172,6 +202,44 @@
             this.button2.Text = "上月数据生成";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cbbtablename
+            // 
+            this.cbbtablename.FormattingEnabled = true;
+            this.cbbtablename.Location = new System.Drawing.Point(67, 6);
+            this.cbbtablename.Name = "cbbtablename";
+            this.cbbtablename.Size = new System.Drawing.Size(232, 20);
+            this.cbbtablename.TabIndex = 7;
+            this.cbbtablename.SelectedIndexChanged += new System.EventHandler(this.cbbtablename_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "表  名：";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(313, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "上月数据上传";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(542, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "手动生成";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dtpend
             // 
@@ -204,34 +272,6 @@
             this.label4.Size = new System.Drawing.Size(89, 12);
             this.label4.TabIndex = 13;
             this.label4.Text = "选择开始时间：";
-            // 
-            // cbbtablename
-            // 
-            this.cbbtablename.FormattingEnabled = true;
-            this.cbbtablename.Location = new System.Drawing.Point(67, 6);
-            this.cbbtablename.Name = "cbbtablename";
-            this.cbbtablename.Size = new System.Drawing.Size(232, 20);
-            this.cbbtablename.TabIndex = 7;
-            this.cbbtablename.SelectedIndexChanged += new System.EventHandler(this.cbbtablename_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "表  名：";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(313, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "上月数据上传";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnUP_sd
             // 
@@ -374,7 +414,8 @@
             this.药品价格ToolStripMenuItem,
             this.toolStripMenuItem2,
             this.耗材价格编辑ToolStripMenuItem,
-            this.机构信息编辑ToolStripMenuItem});
+            this.机构信息编辑ToolStripMenuItem,
+            this.国家科室编辑ToolStripMenuItem});
             this.数据编辑ToolStripMenuItem.Name = "数据编辑ToolStripMenuItem";
             this.数据编辑ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.数据编辑ToolStripMenuItem.Text = "数据编辑";
@@ -382,59 +423,30 @@
             // 药品价格ToolStripMenuItem
             // 
             this.药品价格ToolStripMenuItem.Name = "药品价格ToolStripMenuItem";
-            this.药品价格ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.药品价格ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.药品价格ToolStripMenuItem.Text = "药品价格编辑";
             this.药品价格ToolStripMenuItem.Click += new System.EventHandler(this.药品价格ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem2.Text = "服务价格编辑";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // 耗材价格编辑ToolStripMenuItem
             // 
             this.耗材价格编辑ToolStripMenuItem.Name = "耗材价格编辑ToolStripMenuItem";
-            this.耗材价格编辑ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.耗材价格编辑ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.耗材价格编辑ToolStripMenuItem.Text = "耗材价格编辑";
             this.耗材价格编辑ToolStripMenuItem.Click += new System.EventHandler(this.耗材价格编辑ToolStripMenuItem_Click);
             // 
             // 机构信息编辑ToolStripMenuItem
             // 
             this.机构信息编辑ToolStripMenuItem.Name = "机构信息编辑ToolStripMenuItem";
-            this.机构信息编辑ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.机构信息编辑ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.机构信息编辑ToolStripMenuItem.Text = "机构信息编辑";
             this.机构信息编辑ToolStripMenuItem.Click += new System.EventHandler(this.机构信息编辑ToolStripMenuItem_Click);
-            // 
-            // btnUP_cs
-            // 
-            this.btnUP_cs.Location = new System.Drawing.Point(1008, 4);
-            this.btnUP_cs.Name = "btnUP_cs";
-            this.btnUP_cs.Size = new System.Drawing.Size(74, 23);
-            this.btnUP_cs.TabIndex = 10;
-            this.btnUP_cs.Text = "定时上传";
-            this.btnUP_cs.UseVisualStyleBackColor = true;
-            this.btnUP_cs.Click += new System.EventHandler(this.btnUP_cs_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(796, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 12);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "每天上传时间：";
-            // 
-            // UpTime
-            // 
-            this.UpTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.UpTime.Location = new System.Drawing.Point(892, 5);
-            this.UpTime.Name = "UpTime";
-            this.UpTime.ShowUpDown = true;
-            this.UpTime.Size = new System.Drawing.Size(102, 21);
-            this.UpTime.TabIndex = 8;
-            this.UpTime.Value = new System.DateTime(2011, 6, 28, 0, 0, 0, 0);
             // 
             // timer
             // 
@@ -456,16 +468,6 @@
             this.panel3.Size = new System.Drawing.Size(1112, 31);
             this.panel3.TabIndex = 9;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(538, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(118, 23);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "上月数据重新导入";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(630, 4);
@@ -475,6 +477,13 @@
             this.button5.Text = "手动重新导入";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // 国家科室编辑ToolStripMenuItem
+            // 
+            this.国家科室编辑ToolStripMenuItem.Name = "国家科室编辑ToolStripMenuItem";
+            this.国家科室编辑ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.国家科室编辑ToolStripMenuItem.Text = "国家科室编辑";
+            this.国家科室编辑ToolStripMenuItem.Click += new System.EventHandler(this.国家科室编辑ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -544,6 +553,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ToolStripMenuItem 国家科室编辑ToolStripMenuItem;
     }
 }
 
