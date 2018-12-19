@@ -25,9 +25,9 @@ namespace PriceMonitoringSystem
             try
             {
                 string select = "";
-                if (txtText.Text != "" && !string.IsNullOrEmpty(dgrdUp.Columns[0].HeaderText) && !string.IsNullOrEmpty(dgrdUp.Columns[1].HeaderText))
+                if (ttcode.Text != "" && !string.IsNullOrEmpty(dgrdUp.Columns[0].HeaderText) && !string.IsNullOrEmpty(dgrdUp.Columns[1].HeaderText))
                 {
-                    select = "(" + dgrdUp.Columns[0].HeaderText + " like '%" + txtText.Text + "%' OR " + dgrdUp.Columns[1].HeaderText + "  like '%" + txtText.Text + "%')";
+                    select = "(" + dgrdUp.Columns[0].HeaderText + " like '%" + ttcode.Text + "%' OR " + dgrdUp.Columns[1].HeaderText + "  like '%" + ttcode.Text + "%')";
                 }
                 dgrdUp.DataSource = null;
                 DataTable tmp = dt.Rows[0].Table.Clone(); // 复制DataRow的表结构
@@ -138,18 +138,19 @@ namespace PriceMonitoringSystem
                 else
                 {
                     //第一列不能编辑
-                    if (e.ColumnIndex == 0 )
+                    if (e.ColumnIndex == 0)
                     {
                         MessageBox.Show("第一列" + stridcolumname + "的值不能编辑!");
                         return;
                     }
-                    strcomm = "update " + tablename + " set  " + strcolumn + " ='" + value + "' where " + stridcolumname + " = '" + strrow+"'";
+                    strcomm = "update " + tablename + " set  " + strcolumn + " ='" + value + "' where " + stridcolumname + " = '" + strrow + "'";
                 }
 
 
                 AppServer.ExecuteNonQuery(strcomm);
                 //再更新datagridview 
                 dt = AppServer.SelData(sql);
+
                 SelectTodgv();
             }
             catch (Exception ee)
@@ -170,7 +171,7 @@ namespace PriceMonitoringSystem
 
             for (int i = 0; i < dt.Columns.Count; i++)
             {
-                if (!string.IsNullOrEmpty(dgrdUp.Rows[r].Cells[i].Value.ToString()) )
+                if (!string.IsNullOrEmpty(dgrdUp.Rows[r].Cells[i].Value.ToString()))
                 {
                     if (i == c)
                     {
@@ -180,7 +181,7 @@ namespace PriceMonitoringSystem
                     {
                         return false;
                     }
-                    
+
                 }
             }
             return true;
@@ -193,6 +194,16 @@ namespace PriceMonitoringSystem
         public int newrowid;
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (tablename == "interface_rc")
+            {
+                Frmgjks f = new Frmgjks();
+                //f.Owner = this;
+                //f.StartPosition = FormStartPosition.CenterScreen;
+                f.type = "RC038";
+                f.tablename = "interface_rc";
+                f.ShowDialog();
+                return;
+            }
             DataRow dr1 = dt.NewRow();
             dt.Rows.Add(dr1);
             newrowid = dt.Rows.Count;
@@ -205,12 +216,15 @@ namespace PriceMonitoringSystem
         private void btnDel_Click(object sender, EventArgs e)
         {
             //弹出确认对话框
-            DialogResult dr = MessageBox.Show("确定要删除选中行吗? " , "提示", MessageBoxButtons.OKCancel);
+            DialogResult dr = MessageBox.Show("确定要删除选中行吗? ", "提示", MessageBoxButtons.OKCancel);
             if (dr == DialogResult.Cancel)
             {
                 return;
             }
-
+            if (tablename == "interface_rc")
+            {
+                return;
+            }
 
             dt.Rows.RemoveAt(dgrdUp.CurrentRow.Index);
             Deletedata();
@@ -218,11 +232,10 @@ namespace PriceMonitoringSystem
         //删除选中行
         private void Deletedata()
         {
-
             string stridcolumname = dgrdUp.Columns[0].HeaderText;//获取主键名
             string value = dgrdUp.Rows[dgrdUp.CurrentRow.Index].Cells[0].Value.ToString();//获取选中行第一列值
 
-            string deletesql = "delete from "+tablename+" where " + stridcolumname + "='" + value + "'";
+            string deletesql = "delete from " + tablename + " where " + stridcolumname + "='" + value + "'";
             AppServer.ExecuteNonQuery(deletesql);
             //再更新datagridview 
             dt = AppServer.SelData(sql);
