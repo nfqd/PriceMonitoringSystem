@@ -274,6 +274,14 @@ namespace PriceMonitoringSystem
         {
             this.btnSTOP.Enabled = false;
         }
+        public void button4enable()
+        {
+            this.button4.Enabled = true;
+        }
+        public void button5enable()
+        {
+            this.button5.Enabled = true;
+        }
 
         //手动上传
         private void btnUP_sd_Click(object sender, EventArgs e)
@@ -456,7 +464,7 @@ namespace PriceMonitoringSystem
                 //判断如果是病案首页 则导出数据到excel文件并转换为字节流上传
                 if (cbbtablename.SelectedItem.ToString() == "住院病案首页表")
                 {
-                    string fliename = "41_db_" + DateTime.Now.ToString("yyyy-MM-dd");
+                    string fliename = "41_db_" + StartDate;
                     //生成文件
                     string pathname = ExcelHelper.DataToExcel(dtresult, fliename);
                     //更新数据状态
@@ -471,7 +479,7 @@ namespace PriceMonitoringSystem
                 //string info = "<drugPriceTraceVo><orgCode>" + dtorg.Rows[0]["bm"].ToString() + "</orgCode><hospName>" + dtorg.Rows[0]["mc"].ToString() + "</hospName><submitTotalNum>" + dtresult.Rows.Count.ToString() + "</submitTotalNum><dataStartDate>" + StartDate + "</dataStartDate><dataEndDate>" + StartDate + "</dataEndDate>" + Str + "</drugPriceTraceVo>";
                 string info = stringedit(Str, dtorg, StartDate, EndDate);
                 info = info.Contains("&") ? info.Replace('&', ' ') : info;
-
+                info = info.Contains("T00:00:00+08:00") ? info.Replace("T00:00:00+08:00","") : info;
                 XmlDocument xmldoc = new XmlDocument();
                 xmldoc.LoadXml(info);
                 //保存xml文档
@@ -558,7 +566,7 @@ namespace PriceMonitoringSystem
             //判断如果是病案首页 则导出数据到excel文件并转换为字节流上传
             if (cbbtablename.SelectedItem.ToString() == "住院病案首页表")
             {
-                string fliename = "41_db_" + DateTime.Now.ToString("yyyy-MM-dd");
+                string fliename = "41_db_" + StartDate;
                 //生成文件
                 string pathname = ExcelHelper.DataToExcel(dtresult, fliename);
                 //将datatable 转为字节数组
@@ -588,6 +596,7 @@ namespace PriceMonitoringSystem
             string Str = ConvertDataTableToXML(dtresult);
             string info = stringedit(Str, dtorg, StartDate, EndDate);
             info = info.Contains("&") ? info.Replace('&', ' ') : info;
+            info = info.Contains("T00:00:00+08:00") ? info.Replace("T00:00:00+08:00", "") : info;
 
             //Str = Str.Replace("<Table>", "<drugPriceTrace>").Replace("</Table>", "</drugPriceTrace>").Replace("<NewDataSet>", "<drugPriceTraces>").Replace("</NewDataSet>", "</drugPriceTraces>");
             //string info = "<drugPriceTraceVo><orgCode>" + dtorg.Rows[0]["bm"].ToString() + "</orgCode><hospName>" + dtorg.Rows[0]["mc"].ToString() + "</hospName><submitTotalNum>" + dtresult.Rows.Count.ToString() + "</submitTotalNum><dataStartDate>" + StartDate + "</dataStartDate><dataEndDate>" + StartDate + "</dataEndDate>" + Str + "</drugPriceTraceVo>";
@@ -1153,7 +1162,7 @@ namespace PriceMonitoringSystem
                 Thread th = new Thread(ExceProAgain);
                 th.IsBackground = true;
                 th.Start();
-                this.button2.Enabled = false;
+                this.button4.Enabled = false;
                 btnsotptrue();
             }
             catch (Exception ex)
@@ -1184,6 +1193,7 @@ namespace PriceMonitoringSystem
                 {
                     return;
                 }
+
                 stopbz = false;//暂停
                 dt1 = dtpstart.Value.Date;
                 dt2 = dtpend.Value.Date;
@@ -1191,7 +1201,7 @@ namespace PriceMonitoringSystem
                 th.IsBackground = true;
                 th.Start();
 
-                this.button3.Enabled = false;
+                this.button5.Enabled = false;
                 btnsotptrue();
             }
             catch (Exception ex)
@@ -1252,8 +1262,8 @@ namespace PriceMonitoringSystem
                 MessageBox.Show(ex.Message);
             }
             btnsotpfalse();
-            button2enable();
-            button3enable();
+            button4enable();
+            button5enable();
         }
 
         //
@@ -1295,7 +1305,7 @@ namespace PriceMonitoringSystem
                 {
                     return;
                 }
-                if (tablename == "interface_hospitalBASY")//按季度
+                if (tablename == "interface_hospitalResourceVo")//按季度
                 {
                     StartDate = StartDate.Substring(0, 4);//截取年的数字
                     AppServer.ExcePro(proname, StartDate, quarter);
@@ -1313,6 +1323,18 @@ namespace PriceMonitoringSystem
                 LogHelper.WriteLog("重新导入数据失败！错误信息描述：" + ex.Message);
             }
 
+        }
+
+        private void 国家科室编辑ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTen f = new FrmTen();
+            f.Owner = this;
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.sql = "select  * from  interface_rc where type='rc038'";//
+            DataTable dt = AppServer.SelData(f.sql);
+            f.dt = dt;
+            f.tablename = "interface_rc";
+            f.ShowDialog();
         }
 
 
